@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProjectAuto.Models.Owner>
+
+@{
+    ViewBag.Title = "Owner List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OwnerList</h2>
+
+<p>
+    @Html.ActionLink("Back", "Back")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            First name
+        </th>
+        <th>
+            Second name
+        </th>
+        <th>
+            Year of birth
+        </th>
+        <th>
+           Driver expirience
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DriverExpirience)
+        </td>
+    </tr>
+    }
+}
+
+</table>

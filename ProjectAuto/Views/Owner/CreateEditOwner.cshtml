@@ -1,0 +1,65 @@
+﻿@model ProjectAuto.Models.Owner
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+@{
+    ViewBag.Title = "Create or Edit owner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateEditOwner</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Owner</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            <div class=" control-label col-md-2"><b>First name</b></div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class=" control-label col-md-2"><b>Second name</b></div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SecondName)
+                @Html.ValidationMessageFor(model => model.SecondName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class=" control-label col-md-2"><b>Year of birth</b></div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YearOfBirth)
+                @Html.ValidationMessageFor(model => model.YearOfBirth)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class=" control-label col-md-2"><b>Driver expirience</b></div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DriverExpirience)
+                @Html.ValidationMessageFor(model => model.DriverExpirience)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
